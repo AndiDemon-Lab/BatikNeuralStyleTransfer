@@ -8,7 +8,7 @@ from torchvision import datasets
 from src.fine_tuner import FineTuner
 from src.transform import Transform
 from src.visualization import Visualization
-from torch.optim import Adam, SGD, RMSprop  # Import RMSprop
+from torch.optim import Adam, SGD, RMSprop
 
 warnings.filterwarnings("ignore")
 
@@ -23,7 +23,7 @@ num_epochs = 3
 
 # for tuning
 learning_rates = [1e-3]
-optimizers = ['adam']
+optimizers = ['adam', 'sgd', 'rmsprop']
 
 results = {}
 
@@ -92,7 +92,7 @@ for model_name in models_to_finetune:
                 "training_time": training_time,
                 "hyperparameters": {
                     "optimizer": optimizer_name,
-                    "criterion": fine_tuner.criterion,
+                    "criterion": str(fine_tuner.criterion.__class__.__name__),
                     "learning_rate": learning_rate,
                     "batch_size": batch_size,
                     "num_epochs": num_epochs

@@ -2,37 +2,9 @@
     "vgg19": {
         "train_accuracy": 2.2222222222222223,
         "val_accuracy": 7.142857142857143,
-        "train_loss": 8.307616551717123,
-        "val_loss": 2.7995261086357965,
-        "training_time": 525.1233801841736,
+        "train_loss": 4.257575988769531,
+        "val_loss": 2.7154554261101618,
+        "training_time": 484.8520143032074,
         "hyperparameters": {
-            "learning_rate": 0.001,
-            "batch_size": 8,
-            "num_epochs": 3
-        }
-    },
-    "inception_v3": {
-        "train_accuracy": 13.333333333333334,
-        "val_accuracy": 10.0,
-        "train_loss": 4.926692962646484,
-        "val_loss": 2.682845566007826,
-        "training_time": 161.14283227920532,
-        "hyperparameters": {
-            "learning_rate": 0.001,
-            "batch_size": 8,
-            "num_epochs": 3
-        }
-    },
-    "resnet50": {
-        "train_accuracy": 4.444444444444445,
-        "val_accuracy": 17.142857142857142,
-        "train_loss": 3.4612017075220742,
-        "val_loss": 8.427801423602634,
-        "training_time": 148.04676151275635,
-        "hyperparameters": {
-            "learning_rate": 0.001,
-            "batch_size": 8,
-            "num_epochs": 3
-        }
-    }
-}
+            "optimizer": "adam",
+            "criterion": 
