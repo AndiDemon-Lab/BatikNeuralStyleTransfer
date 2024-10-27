@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
 import os
+import time
 
 class Visualization:
     def __init__(self, model_name, plot_save_dir, num_epochs):
@@ -18,7 +19,8 @@ class Visualization:
         plt.grid()
         
         # Save plot to file
-        plot_save_path = os.path.join(self.plot_save_dir, f'{self.model_name}_accuracy_plot.png')
+        timestamp = time.strftime("%Y%m%d%H%M%S")
+        plot_save_path = os.path.join(self.plot_save_dir, f'{self.model_name}_accuracy_plot_{timestamp}.png')
         plt.savefig(plot_save_path)
         plt.close()
 
@@ -33,6 +35,7 @@ class Visualization:
         plt.grid()
 
         # Save plot to file
-        plot_save_path = os.path.join(self.plot_save_dir, f'{self.model_name}_loss_plot.png')
+        timestamp = time.strftime("%Y%m%d%H%M%S")
+        plot_save_path = os.path.join(self.plot_save_dir, f'{self.model_name}_loss_plot_{timestamp}.png')
         plt.savefig(plot_save_path)
         plt.close()

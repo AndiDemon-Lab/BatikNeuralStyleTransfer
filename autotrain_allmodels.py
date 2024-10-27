@@ -8,7 +8,6 @@ from torchvision import datasets
 from src.fine_tuner import FineTuner
 from src.transform import Transform
 from src.visualization import Visualization
-from torch.optim import Adam, SGD, RMSprop
 
 warnings.filterwarnings("ignore")
 
@@ -19,34 +18,35 @@ transformer = Transform()
 
 # hyperparameters
 batch_size = 8
-num_epochs = 10
+num_epochs = 1
 
-# for tuning
-learning_rates = [1e-3]
-optimizers = ['adam', 'sgd', 'rmsprop']
+# learning rates for tuning
+# whatever value
+learning_rates = [1e-3, 1e-4]
 
-results = {}
+# optimizers to fine-tune
+# the option is 'adam', 'sgd', and 'rmsprop'
+optimizers = ['rmsprop', 'sgd']
 
 # models to fine-tune
+# the option is 'vgg19', 'inception_v3', 'resnet50'
 models_to_finetune = ["vgg19", "inception_v3", "resnet50"]
 
 #-------------------------Fine-tuning----------------------------
 
-model_save_dir = 'training_assets/saved_models'
-plot_save_dir = 'training_assets/process_training'
-os.makedirs(model_save_dir, exist_ok=True)
-os.makedirs(plot_save_dir, exist_ok=True)
-
+results = {}
 # training loop through each model, learning rate, and optimizer
 for model_name in models_to_finetune:
-    for learning_rate in learning_rates:
-        for optimizer_name in optimizers:
-            print(f"Fine-tuning '{model_name}' with optimizer '{optimizer_name}'...")
+    results[model_name] = {}  # Create an entry for each model
+    for optimizer_name in optimizers:
+        results[model_name][optimizer_name] = {}  # Create an entry for each optimizer
+        for learning_rate in learning_rates:
+            print(f"Fine-tuning '{model_name}' with optimizer '{optimizer_name}' and learning rate '{learning_rate}'...")
 
             # load dataset
             data_transform = transformer.get_transform(model_name)
 
-            train_dataset = datasets.ImageFolder(root="data/train", transform=data_transform)
+            train_dataset = datasets.ImageFolder(root="data/train_dikit", transform=data_transform)
             train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
             val_dataset = datasets.ImageFolder(root="data/test", transform=data_transform)
@@ -74,17 +74,23 @@ for model_name in models_to_finetune:
             training_time = end_time - start_time
 
             # save trained model
-            model_save_path = os.path.join(model_save_dir, f'{model_name}_{optimizer_name}_lr{learning_rate}_model.pth')
+            model_save_dir = f'training_assets/saved_models/{optimizer_name}_{learning_rate}_{num_epochs}'
+            os.makedirs(model_save_dir, exist_ok=True)
+            timestamp = time.strftime("%Y%m%d%H%M%S")
+            model_save_path = os.path.join(model_save_dir, f'{model_name}_{optimizer_name}_lr{learning_rate}_{timestamp}_model.pth')
             torch.save(fine_tuner.model.state_dict(), model_save_path)
             print(f"Model saved to {model_save_path}")
 
             # visualization
+            plot_save_dir = f'training_assets/process_training/{optimizer_name}_{learning_rate}_{num_epochs}'
+            os.makedirs(plot_save_dir, exist_ok=True)
             vis = Visualization(model_name, plot_save_dir, num_epochs)
             vis.plot_accuracy(train_acc, val_acc)
             vis.plot_loss(train_loss, val_loss)
 
-            # training and validation results
-            results[f"{model_name}"] = {
+            # store training and validation results
+            sanitized_lr = str(learning_rate).replace('.', ',')
+            results[model_name][optimizer_name][sanitized_lr] = {
                 "train_accuracy": train_acc[0],
                 "val_accuracy": val_acc[0],
                 "train_loss": train_loss[0],
@@ -99,8 +105,12 @@ for model_name in models_to_finetune:
                 }
             }
 
-# save results
-with open('training_assets/fine_tuning_results.json', 'w') as f:
+            torch.cuda.empty_cache()
+
+# save results for all combinations
+timestamp = time.strftime("%Y%m%d%H%M%S")
+results_file_path = f'training_assets/results_{timestamp}.json'
+with open(results_file_path, 'w') as f:
     json.dump(results, f, indent=4)
 
-print("Fine-tuning completed, results saved to --> training_assets")
+print(f"Fine-tuning completed, results saved to --> {results_file_path}")
