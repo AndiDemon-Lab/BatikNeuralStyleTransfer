@@ -8,7 +8,7 @@ from torchvision import datasets
 from src.fine_tuner import FineTuner
 from src.transform import Transform
 from src.visualization import Visualization
-from torch.optim import Adam, SGD, RMSprop  # Import RMSprop
+from torch.optim import Adam, SGD, RMSprop
 
 warnings.filterwarnings("ignore")
 
