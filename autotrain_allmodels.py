@@ -41,7 +41,7 @@ os.makedirs(plot_save_dir, exist_ok=True)
 for model_name in models_to_finetune:
     for learning_rate in learning_rates:
         for optimizer_name in optimizers:
-            print(f"Fine-tuning {model_name} with learning_rate={learning_rate} and optimizer={optimizer_name}...")
+            print(f"Fine-tuning '{model_name}' with optimizer '{optimizer_name}'...")
 
             # load dataset
             data_transform = transformer.get_transform(model_name)
