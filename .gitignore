@@ -1,0 +1,5 @@
+data/
+training_assets/saved_models/
+uploads/
+__pycache__/
+*.ipynb

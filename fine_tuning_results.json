@@ -1,0 +1,15 @@
+{
+    "resnet50": {
+        "train_accuracy": [
+            15.61938958707361
+        ],
+        "val_accuracy": [
+            12.857142857142858
+        ],
+        "hyperparameters": {
+            "learning_rate": 0.001,
+            "batch_size": 4,
+            "num_epochs": 1
+        }
+    }
+}
