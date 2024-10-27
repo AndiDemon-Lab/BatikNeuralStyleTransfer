@@ -19,7 +19,7 @@ transformer = Transform()
 
 # hyperparameters
 batch_size = 8
-num_epochs = 3
+num_epochs = 10
 
 # for tuning
 learning_rates = [1e-3]
