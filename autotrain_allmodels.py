@@ -37,9 +37,9 @@ models_to_finetune = ["vgg19", "inception_v3", "resnet50"]
 results = {}
 # training loop through each model, learning rate, and optimizer
 for model_name in models_to_finetune:
-    results[model_name] = {}  # Create an entry for each model
+    results[model_name] = {}
     for optimizer_name in optimizers:
-        results[model_name][optimizer_name] = {}  # Create an entry for each optimizer
+        results[model_name][optimizer_name] = {}
         for learning_rate in learning_rates:
             print(f"Fine-tuning '{model_name}' with optimizer '{optimizer_name}' and learning rate '{learning_rate}'...")
 
