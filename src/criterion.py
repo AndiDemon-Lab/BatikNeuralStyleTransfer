@@ -1,5 +1,5 @@
 from torch.nn.functional import mse_loss
-from nst_utils import ImageHandler
+from .nst_utils import ImageHandler
 
 class Criterion:
     def __init__(self) -> None:

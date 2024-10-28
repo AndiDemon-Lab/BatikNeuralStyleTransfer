@@ -18,15 +18,15 @@ transformer = Transform()
 
 # hyperparameters
 batch_size = 8
-num_epochs = 1
+num_epochs = 25
 
 # learning rates for tuning
 # whatever value
-learning_rates = [1e-3, 1e-4]
+learning_rates = [1e-3]
 
 # optimizers to fine-tune
 # the option is 'adam', 'sgd', and 'rmsprop'
-optimizers = ['rmsprop', 'sgd']
+optimizers = ['adam', 'sgd', 'rmsprop']
 
 # models to fine-tune
 # the option is 'vgg19', 'inception_v3', 'resnet50'
@@ -46,7 +46,7 @@ for model_name in models_to_finetune:
             # load dataset
             data_transform = transformer.get_transform(model_name)
 
-            train_dataset = datasets.ImageFolder(root="data/train_dikit", transform=data_transform)
+            train_dataset = datasets.ImageFolder(root="data/train", transform=data_transform)
             train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
 
             val_dataset = datasets.ImageFolder(root="data/test", transform=data_transform)

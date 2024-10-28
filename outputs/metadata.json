@@ -1,0 +1,70 @@
+{
+    "sessions": [
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/train_dikit/batik-barong/1.jpg",
+            "style_image": "data/train_dikit/batik-kawung/1.jpg",
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241029-012415.png",
+                    "timestamp": "20241029-012415"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241029-012503.png",
+                    "timestamp": "20241029-012503"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241029-012558.png",
+                    "timestamp": "20241029-012558"
+                }
+            ],
+            "loss_values": [
+                42.715267181396484,
+                40.73017120361328,
+                40.06673812866211
+            ],
+            "ssim_values": [
+                0.4531128946362204,
+                0.4092998365920863,
+                0.36340545587885403
+            ]
+        },
+        {
+            "model_name": "resnet50",
+            "is_finetuned": false,
+            "content_image": "data/train_dikit/batik-barong/1.jpg",
+            "style_image": "data/train_dikit/batik-kawung/1.jpg",
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_resnet50/output_epoch_800_20241029-012902.png",
+                    "timestamp": "20241029-012902"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_resnet50/output_epoch_1600_20241029-012926.png",
+                    "timestamp": "20241029-012926"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_resnet50/output_epoch_2500_20241029-012952.png",
+                    "timestamp": "20241029-012952"
+                }
+            ],
+            "loss_values": [
+                1.8972545862197876,
+                1.8518316745758057,
+                1.8259978294372559
+            ],
+            "ssim_values": [
+                0.43296874124636625,
+                0.2938528791821989,
+                0.24553884985875882
+            ]
+        }
+    ]
+}

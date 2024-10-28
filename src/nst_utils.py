@@ -21,9 +21,9 @@ class ImageHandler:
 
     def gram_matrix(self, X):
         n, c, h, w = X.shape
-        X = X.view(n*c, h*w) # Flattening
+        X = X.view(n*c, h*w) # flattening
         G = torch.mm(X, X.t())
-        G = G.div(n*c*h*w) # Normalization
+        G = G.div(n*c*h*w) # normalization
         return G
 
     def draw_styled_image(self, output):
