@@ -30,7 +30,7 @@ optimizers = ['sgd', 'adam', 'rmsprop']
 
 # models to fine-tune
 # the option is 'vgg19', 'inception_v3', 'resnet50'
-models_to_finetune = ["resnet50"]
+models_to_finetune = ["inception_v3"]
 
 #-------------------------Fine-tuning----------------------------
 
