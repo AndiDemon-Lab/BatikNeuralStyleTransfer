@@ -27,7 +27,7 @@ This project combines traditional Indonesian batik patterns with modern neural s
 To install the project, clone the repository and install the required packages:
 
 ```bash
-git clone https://github.com/yourusername/BatikNeuralStyleTransfer.git
+git clone https://github.com/grayscale636/BatikNeuralStyleTransfer.git
 cd BatikNeuralStyleTransfer
 pip install -r requirements.txt
 ```
