@@ -1,0 +1,52 @@
+{
+    "vgg19": {
+        "adam": {
+            "0,001": {
+                "train_accuracy": 12.069658886894075,
+                "val_accuracy": 7.242857142857143,
+                "train_loss": 2.70092896733965,
+                "val_loss": 2.5584973176320395,
+                "training_time": 15256.419898748398,
+                "hyperparameters": {
+                    "optimizer": "adam",
+                    "criterion": "CrossEntropyLoss",
+                    "learning_rate": 0.001,
+                    "batch_size": 8,
+                    "num_epochs": 25
+                }
+            }
+        },
+        "sgd": {
+            "0,001": {
+                "train_accuracy": 97.671454219030522,
+                "val_accuracy": 64.571428571428573,
+                "train_loss": 0.5364134073257447,
+                "val_loss": 1.89274571445253162,
+                "training_time": 5037.739778757095,
+                "hyperparameters": {
+                    "optimizer": "sgd",
+                    "criterion": "CrossEntropyLoss",
+                    "learning_rate": 0.001,
+                    "batch_size": 8,
+                    "num_epochs": 25
+                }
+            }
+        },
+        "rmsprop": {
+            "0,001": {
+                "train_accuracy": 13.59245960502693,
+                "val_accuracy": 7.314285714285714,
+                "train_loss": 0.0118757010295987,
+                "val_loss": 0.001933965584933757,
+                "training_time": 15000.28437423706,
+                "hyperparameters": {
+                    "optimizer": "rmsprop",
+                    "criterion": "CrossEntropyLoss",
+                    "learning_rate": 0.001,
+                    "batch_size": 8,
+                    "num_epochs": 25
+                }
+            }
+        }
+    }
+}

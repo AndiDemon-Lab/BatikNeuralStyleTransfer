@@ -26,11 +26,11 @@ learning_rates = [1e-3]
 
 # optimizers to fine-tune
 # the option is 'adam', 'sgd', and 'rmsprop'
-optimizers = ['adam', 'sgd', 'rmsprop']
+optimizers = ['sgd', 'adam', 'rmsprop']
 
 # models to fine-tune
 # the option is 'vgg19', 'inception_v3', 'resnet50'
-models_to_finetune = ["vgg19", "inception_v3", "resnet50"]
+models_to_finetune = ["resnet50"]
 
 #-------------------------Fine-tuning----------------------------
 
@@ -91,10 +91,10 @@ for model_name in models_to_finetune:
             # store training and validation results
             sanitized_lr = str(learning_rate).replace('.', ',')
             results[model_name][optimizer_name][sanitized_lr] = {
-                "train_accuracy": train_acc[0],
-                "val_accuracy": val_acc[0],
-                "train_loss": train_loss[0],
-                "val_loss": val_loss[0],
+                "train_accuracy": train_acc[-1],
+                "val_accuracy": val_acc[-1],
+                "train_loss": train_loss[-1],
+                "val_loss": val_loss[-1],
                 "training_time": training_time,
                 "hyperparameters": {
                     "optimizer": optimizer_name,
