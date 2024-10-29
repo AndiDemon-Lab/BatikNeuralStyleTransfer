@@ -8,30 +8,31 @@
             "generated_images": [
                 {
                     "epoch": 800,
-                    "filename": "outputs/generate_vgg19/output_epoch_800_20241029-012415.png",
-                    "timestamp": "20241029-012415"
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241029-152729.png",
+                    "timestamp": "20241029-152729"
                 },
                 {
                     "epoch": 1600,
-                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241029-012503.png",
-                    "timestamp": "20241029-012503"
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241029-152940.png",
+                    "timestamp": "20241029-152940"
                 },
                 {
                     "epoch": 2500,
-                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241029-012558.png",
-                    "timestamp": "20241029-012558"
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241029-153205.png",
+                    "timestamp": "20241029-153205"
                 }
             ],
             "loss_values": [
-                42.715267181396484,
-                40.73017120361328,
-                40.06673812866211
+                42.715518951416016,
+                40.73603439331055,
+                40.063560485839844
             ],
             "ssim_values": [
-                0.4531128946362204,
-                0.4092998365920863,
-                0.36340545587885403
-            ]
+                0.4543505802165764,
+                0.4079916975289353,
+                0.364864694978124
+            ],
+            "training_time": 404.36213088035583
         },
         {
             "model_name": "resnet50",
@@ -41,30 +42,31 @@
             "generated_images": [
                 {
                     "epoch": 800,
-                    "filename": "outputs/generate_resnet50/output_epoch_800_20241029-012902.png",
-                    "timestamp": "20241029-012902"
+                    "filename": "outputs/generate_resnet50/output_epoch_800_20241029-154952.png",
+                    "timestamp": "20241029-154952"
                 },
                 {
                     "epoch": 1600,
-                    "filename": "outputs/generate_resnet50/output_epoch_1600_20241029-012926.png",
-                    "timestamp": "20241029-012926"
+                    "filename": "outputs/generate_resnet50/output_epoch_1600_20241029-155016.png",
+                    "timestamp": "20241029-155016"
                 },
                 {
                     "epoch": 2500,
-                    "filename": "outputs/generate_resnet50/output_epoch_2500_20241029-012952.png",
-                    "timestamp": "20241029-012952"
+                    "filename": "outputs/generate_resnet50/output_epoch_2500_20241029-155044.png",
+                    "timestamp": "20241029-155044"
                 }
             ],
             "loss_values": [
-                1.8972545862197876,
-                1.8518316745758057,
-                1.8259978294372559
+                2.0218942165374756,
+                1.904961347579956,
+                1.8220112323760986
             ],
             "ssim_values": [
-                0.43296874124636625,
-                0.2938528791821989,
-                0.24553884985875882
-            ]
+                0.4435475913843557,
+                0.3003073736732595,
+                0.2448688155261826
+            ],
+            "training_time": 74.40071845054626
         }
     ]
 }

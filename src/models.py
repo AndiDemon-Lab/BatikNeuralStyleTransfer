@@ -35,7 +35,6 @@ class NeuralStyleTransfer(nn.Module):
         else:
             raise ValueError("Model name not recognized. Choose from 'vgg19', 'inception_v3', or 'resnet50'.")
 
-
     def forward(self, x, layers):
         features = []
         for i, layer in enumerate(self.model):
@@ -52,7 +51,8 @@ class NeuralStyleTransfer(nn.Module):
         """Load fine-tuned weights from the specified path."""
         if os.path.isfile(weights_path):
             state_dict = torch.load(weights_path, map_location='cpu')
-            self.model.load_state_dict(state_dict)
+            # Use strict=False to ignore any mismatched layers
+            self.model.load_state_dict(state_dict, strict=False)
             print(f"Loaded weights from {weights_path}.")
         else:
             raise FileNotFoundError(f"No weight file found at {weights_path}.")

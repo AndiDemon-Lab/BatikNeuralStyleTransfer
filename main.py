@@ -63,6 +63,9 @@ def train(request: TrainRequest):
         "ssim_values": []
     }
 
+    # Record start time
+    start_time = time.time()
+
     for epoch in range(1, max_epochs + 1):
         output_features = nst(output, layers=["4", "8"])
         loss = criterion.criterion(content_features, style_features, output_features, output_features, style_weight=1e6)
@@ -93,6 +96,11 @@ def train(request: TrainRequest):
             new_session["loss_values"].append(loss.item())
             new_session["ssim_values"].append(ssim_value)
 
+    # Calculate training time and add it to metadata
+    end_time = time.time()
+    training_time = end_time - start_time
+    new_session["training_time"] = training_time  # in seconds
+
     # append new session to existing metadata
     metadata["sessions"].append(new_session)
 
@@ -100,7 +108,7 @@ def train(request: TrainRequest):
     with open(metadata_filename, 'w') as json_file:
         json.dump(metadata, json_file, indent=4)
 
-    return {"message": "Training completed!", "generated_image_name": generated_image_name}
+    return {"message": "Training completed!", "generated_image_name": generated_image_name, "training_time": training_time}
 
 def upload_and_train(content_image_path: str, style_image_path: str):
     # Create TrainRequest object and initiate training
