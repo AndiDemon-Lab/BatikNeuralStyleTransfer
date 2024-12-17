@@ -1,0 +1,174 @@
+{
+    "sessions": [
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/train_dikit/batik-barong/1.jpg",
+            "style_image": "data/train_dikit/batik-kawung/1.jpg",
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241029-152729.png",
+                    "timestamp": "20241029-152729"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241029-152940.png",
+                    "timestamp": "20241029-152940"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241029-153205.png",
+                    "timestamp": "20241029-153205"
+                }
+            ],
+            "loss_values": [
+                42.715518951416016,
+                40.73603439331055,
+                40.063560485839844
+            ],
+            "ssim_values": [
+                0.4543505802165764,
+                0.4079916975289353,
+                0.364864694978124
+            ],
+            "training_time": 404.36213088035583
+        },
+        {
+            "model_name": "resnet50",
+            "is_finetuned": false,
+            "content_image": "data/train_dikit/batik-barong/1.jpg",
+            "style_image": "data/train_dikit/batik-kawung/1.jpg",
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_resnet50/output_epoch_800_20241029-154952.png",
+                    "timestamp": "20241029-154952"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_resnet50/output_epoch_1600_20241029-155016.png",
+                    "timestamp": "20241029-155016"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_resnet50/output_epoch_2500_20241029-155044.png",
+                    "timestamp": "20241029-155044"
+                }
+            ],
+            "loss_values": [
+                2.0218942165374756,
+                1.904961347579956,
+                1.8220112323760986
+            ],
+            "ssim_values": [
+                0.4435475913843557,
+                0.3003073736732595,
+                0.2448688155261826
+            ],
+            "training_time": 74.40071845054626
+        },
+        {
+            "model_name": "resnet101",
+            "is_finetuned": false,
+            "content_image": "data/train_dikit/batik-barong/1.jpg",
+            "style_image": "data/train_dikit/batik-kawung/1.jpg",
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_resnet101/output_epoch_800_20241119-102155.png",
+                    "timestamp": "20241119-102155"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_resnet101/output_epoch_1600_20241119-102235.png",
+                    "timestamp": "20241119-102235"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_resnet101/output_epoch_2500_20241119-102319.png",
+                    "timestamp": "20241119-102319"
+                }
+            ],
+            "loss_values": [
+                1.5770357847213745,
+                1.5108842849731445,
+                1.5107625722885132
+            ],
+            "ssim_values": [
+                0.2666340272144034,
+                0.19279206952207686,
+                0.18950776008628076
+            ],
+            "training_time": 123.52894139289856
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/train_dikit/batik-barong/1.jpg",
+            "style_image": "data/train_dikit/batik-kawung/1.jpg",
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-105005.png",
+                    "timestamp": "20241119-105005"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-105045.png",
+                    "timestamp": "20241119-105045"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-105130.png",
+                    "timestamp": "20241119-105130"
+                }
+            ],
+            "loss_values": [
+                48.09650421142578,
+                45.55722427368164,
+                44.619300842285156
+            ],
+            "ssim_values": [
+                0.4488027065328823,
+                0.41013628113295186,
+                0.37052686158808573
+            ],
+            "training_time": 122.2904794216156
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/train/batik-cendrawasih/001.jpg",
+            "style_image": "data/train/batik-kawung/1.jpg",
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-105623.png",
+                    "timestamp": "20241119-105623"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-105703.png",
+                    "timestamp": "20241119-105703"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-105748.png",
+                    "timestamp": "20241119-105748"
+                }
+            ],
+            "loss_values": [
+                58.32475662231445,
+                53.297950744628906,
+                51.26091384887695
+            ],
+            "ssim_values": [
+                0.22351607072859433,
+                0.2113860580823025,
+                0.19797570857468982
+            ],
+            "training_time": 122.19966411590576
+        }
+    ]
+}

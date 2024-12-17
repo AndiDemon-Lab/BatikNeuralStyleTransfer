@@ -10,13 +10,21 @@ from torch import optim
 
 device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
 
-# model option ['vgg19', 'resnet50', inception_v3(still error)]
-model_name = "resnet50"
+# HYPERPARAMETERS TO SET
+# model option ['vgg19', 'vgg16' 'resnet50', 'resnet101' inception_v3(still error)]
+model_name = "vgg19"
 pretrained_weights_path = None
+content_weight = 2
+style_weight = 1e8
+content_layers = ["4", "8"]
+style_layers = ["4", "8"]
+
+# instance
 nst = NeuralStyleTransfer(model_name, pretrained_weights_path=pretrained_weights_path).to(device)
-criterion = Criterion()
+criterion = Criterion(content_weight=content_weight, style_weight=style_weight)
 image_handler = ImageHandler()
 
+# get metadata for generated images
 def load_existing_metadata(metadata_filename):
     if os.path.exists(metadata_filename):
         with open(metadata_filename, 'r') as json_file:
@@ -26,6 +34,7 @@ def load_existing_metadata(metadata_filename):
             return metadata
     return {"sessions": []} 
 
+# train nst
 def train(request: TrainRequest):
     # load content and style images
     content_image = image_handler.load_image(request.content_image_path, image_handler.transform).to(device)
@@ -37,10 +46,10 @@ def train(request: TrainRequest):
     optimizer = optim.AdamW([output], lr=0.05)
     
     # extract features
-    content_features = nst(content_image, layers=["4", "8"])
-    style_features = nst(style_image, layers=["4", "8"])
+    content_features = nst(content_image, layers=content_layers)
+    style_features = nst(style_image, layers=style_layers)
 
-    max_epochs = 2500
+    max_epochs = 1000
     print(f'--------------------- Start Training ---------------------')
     generated_image_name = ""
     
@@ -49,7 +58,7 @@ def train(request: TrainRequest):
     os.makedirs(model_output_dir, exist_ok=True)
 
     # load existing metadata
-    metadata_filename = "outputs/metadata.json"
+    metadata_filename = "outputs/new_metadata.json"
     metadata = load_existing_metadata(metadata_filename)
 
     # prepare new session metadata
@@ -58,6 +67,10 @@ def train(request: TrainRequest):
         "is_finetuned": pretrained_weights_path is not None,
         "content_image": request.content_image_path,
         "style_image": request.style_image_path,
+        "content_weight": content_weight,
+        "style_weight": style_weight,
+        "content_layers": content_layers,
+        "style_layers": style_layers,
         "generated_images": [],
         "loss_values": [],
         "ssim_values": []
@@ -68,7 +81,7 @@ def train(request: TrainRequest):
 
     for epoch in range(1, max_epochs + 1):
         output_features = nst(output, layers=["4", "8"])
-        loss = criterion.criterion(content_features, style_features, output_features, output_features, style_weight=1e6)
+        loss = criterion.criterion(content_features, style_features, output_features, output_features)
         loss.backward()
         
         optimizer.step()
@@ -81,7 +94,7 @@ def train(request: TrainRequest):
         
         # save output images at specific epochs
         timestamp = time.strftime("%Y%m%d-%H%M%S")
-        if epoch in {800, 1600, 2500}:
+        if epoch in {100, 500, 1000}:
             output_image_path = f"{model_output_dir}/output_epoch_{epoch}_{timestamp}.png"
             image_handler.save_image(output, output_image_path)
             generated_image_name = f"output_epoch_{epoch}.png"
@@ -122,8 +135,27 @@ def upload_and_train(content_image_path: str, style_image_path: str):
 def main(content_image_path: str, style_image_path: str):
     upload_and_train(content_image_path, style_image_path)
 
-if __name__ == "__main__":
-    content_image_path = "data/train_dikit/batik-barong/1.jpg" 
-    style_image_path = "data/train_dikit/batik-kawung/1.jpg" 
+# # single generate
+# if __name__ == "__main__":
+#     content_image_path = "data\_content\sa.jpg" 
+#     style_image_path = "data/train_dikit/batik-kawung/1.jpg" 
     
-    main(content_image_path, style_image_path)
+#     main(content_image_path, style_image_path)
+
+# batch generate
+if __name__ == "__main__":
+    content_folder = "data/_content"
+    style_folder = "data/_style"
+
+    content_image_paths = [os.path.join(content_folder, f) for f in os.listdir(content_folder) if f.endswith((".jpg", ".png"))]
+    style_image_paths = [os.path.join(style_folder, f) for f in os.listdir(style_folder) if f.endswith((".jpg", ".png"))]
+
+    os.makedirs("outputs", exist_ok=True)
+
+    for content_image_path in content_image_paths:
+        for style_image_path in style_image_paths:
+            print(f"Processing Content: {content_image_path}, Style: {style_image_path}")
+            try:
+                main(content_image_path, style_image_path)
+            except Exception as e:
+                print(f"Error processing {content_image_path} with {style_image_path}: {e}")

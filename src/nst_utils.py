@@ -7,10 +7,10 @@ from skimage.metrics import structural_similarity as ssim
 class ImageHandler:
     def __init__(self):
         self.transform = transforms.Compose([
-            transforms.Resize((256, 256)),
+            transforms.Resize(300),
             transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
-        ])
+            transforms.Normalize([0.485, 0.456, 0.406], [0.229, 0.224, 0.225])
+        ])  
         self.mean = torch.FloatTensor([[[0.485, 0.456, 0.406]]])
         self.std = torch.FloatTensor([[[0.229, 0.224, 0.225]]])
 
@@ -45,7 +45,7 @@ class ImageHandler:
         plt.imshow(image)
         if title is not None:
             plt.title(title)
-        plt.pause(0.001)  # pause to display the image
+        plt.pause(0.001)
 
     def save_image(self, image, path):
         image = image.detach().cpu() 

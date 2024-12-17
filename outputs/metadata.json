@@ -3,36 +3,110 @@
         {
             "model_name": "vgg19",
             "is_finetuned": false,
-            "content_image": "data/train_dikit/batik-barong/1.jpg",
-            "style_image": "data/train_dikit/batik-kawung/1.jpg",
+            "content_image": "data/train/batik-cendrawasih/001.jpg",
+            "style_image": "data/train/batik-megamendung/1.jpg",
+            "style_weight": 1000000000000.0,
+            "content_weight": 10000.0,
             "generated_images": [
                 {
                     "epoch": 800,
-                    "filename": "outputs/generate_vgg19/output_epoch_800_20241029-152729.png",
-                    "timestamp": "20241029-152729"
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-110138.png",
+                    "timestamp": "20241119-110138"
                 },
                 {
                     "epoch": 1600,
-                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241029-152940.png",
-                    "timestamp": "20241029-152940"
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-110217.png",
+                    "timestamp": "20241119-110217"
                 },
                 {
                     "epoch": 2500,
-                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241029-153205.png",
-                    "timestamp": "20241029-153205"
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-110301.png",
+                    "timestamp": "20241119-110301"
                 }
             ],
             "loss_values": [
-                42.715518951416016,
-                40.73603439331055,
-                40.063560485839844
+                3936815.25,
+                1384721.375,
+                803961.625
             ],
             "ssim_values": [
-                0.4543505802165764,
-                0.4079916975289353,
-                0.364864694978124
+                0.1384513964156895,
+                0.15848149803807576,
+                0.18144675090685988
             ],
-            "training_time": 404.36213088035583
+            "training_time": 121.88155126571655
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "style_weight": 1000000000000.0,
+            "content_weight": 10000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-111926.png",
+                    "timestamp": "20241119-111926"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-112006.png",
+                    "timestamp": "20241119-112006"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-112050.png",
+                    "timestamp": "20241119-112050"
+                }
+            ],
+            "loss_values": [
+                127237.5,
+                101678.65625,
+                107186.0
+            ],
+            "ssim_values": [
+                0.5359871977602138,
+                0.4904059667876186,
+                0.46267233986285355
+            ],
+            "training_time": 123.03768134117126
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "style_weight": 1000.0,
+            "content_weight": 1.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-112743.png",
+                    "timestamp": "20241119-112743"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-112823.png",
+                    "timestamp": "20241119-112823"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-112907.png",
+                    "timestamp": "20241119-112907"
+                }
+            ],
+            "loss_values": [
+                0.3704568147659302,
+                0.3643251359462738,
+                0.36325347423553467
+            ],
+            "ssim_values": [
+                0.7548242351264386,
+                0.6671873717930819,
+                0.618581904608003
+            ],
+            "training_time": 123.14964151382446
         },
         {
             "model_name": "resnet50",
@@ -42,31 +116,355 @@
             "generated_images": [
                 {
                     "epoch": 800,
-                    "filename": "outputs/generate_resnet50/output_epoch_800_20241029-154952.png",
-                    "timestamp": "20241029-154952"
+                    "filename": "outputs/generate_resnet50/output_epoch_800_20241119-115026.png",
+                    "timestamp": "20241119-115026"
                 },
                 {
                     "epoch": 1600,
-                    "filename": "outputs/generate_resnet50/output_epoch_1600_20241029-155016.png",
-                    "timestamp": "20241029-155016"
+                    "filename": "outputs/generate_resnet50/output_epoch_1600_20241119-115047.png",
+                    "timestamp": "20241119-115047"
                 },
                 {
                     "epoch": 2500,
-                    "filename": "outputs/generate_resnet50/output_epoch_2500_20241029-155044.png",
-                    "timestamp": "20241029-155044"
+                    "filename": "outputs/generate_resnet50/output_epoch_2500_20241119-115110.png",
+                    "timestamp": "20241119-115110"
                 }
             ],
             "loss_values": [
-                2.0218942165374756,
-                1.904961347579956,
-                1.8220112323760986
+                836499.9375,
+                556570.1875,
+                888951.875
             ],
             "ssim_values": [
-                0.4435475913843557,
-                0.3003073736732595,
-                0.2448688155261826
+                0.9192169700762337,
+                0.8487996370784986,
+                0.7993575518689405
             ],
-            "training_time": 74.40071845054626
+            "training_time": 62.51874303817749
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/train_dikit/batik-barong/1.jpg",
+            "style_image": "data/train_dikit/batik-kawung/1.jpg",
+            "content_weight": 2,
+            "style_weight": 100000000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-120440.png",
+                    "timestamp": "20241119-120440"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-120529.png",
+                    "timestamp": "20241119-120529"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-120625.png",
+                    "timestamp": "20241119-120625"
+                }
+            ],
+            "loss_values": [
+                320.4937744140625,
+                158.48789978027344,
+                113.73402404785156
+            ],
+            "ssim_values": [
+                0.4057722670207527,
+                0.3699947000105481,
+                0.34381764596056635
+            ],
+            "training_time": 152.39131832122803
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "content_weight": 2,
+            "style_weight": 100000000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-120944.png",
+                    "timestamp": "20241119-120944"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-121033.png",
+                    "timestamp": "20241119-121033"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-121128.png",
+                    "timestamp": "20241119-121128"
+                }
+            ],
+            "loss_values": [
+                18.694480895996094,
+                16.29932975769043,
+                15.392183303833008
+            ],
+            "ssim_values": [
+                0.5346812259747201,
+                0.4964033909820356,
+                0.47621520991511995
+            ],
+            "training_time": 152.6391577720642
+        },
+        {
+            "model_name": "vgg16",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "content_weight": 2,
+            "style_weight": 100000000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg16/output_epoch_800_20241119-121838.png",
+                    "timestamp": "20241119-121838"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg16/output_epoch_1600_20241119-121920.png",
+                    "timestamp": "20241119-121920"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg16/output_epoch_2500_20241119-122007.png",
+                    "timestamp": "20241119-122007"
+                }
+            ],
+            "loss_values": [
+                21.36899185180664,
+                18.525089263916016,
+                17.07261848449707
+            ],
+            "ssim_values": [
+                0.5319868579462101,
+                0.4939503820135793,
+                0.47022478711560595
+            ],
+            "training_time": 129.8262233734131
+        },
+        {
+            "model_name": "vgg16",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "content_weight": 2,
+            "style_weight": 100000000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg16/output_epoch_800_20241119-130652.png",
+                    "timestamp": "20241119-130652"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg16/output_epoch_1600_20241119-130734.png",
+                    "timestamp": "20241119-130734"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg16/output_epoch_2500_20241119-130821.png",
+                    "timestamp": "20241119-130821"
+                }
+            ],
+            "loss_values": [
+                7689.24072265625,
+                7582.4072265625,
+                7535.9072265625
+            ],
+            "ssim_values": [
+                0.2576214709074755,
+                0.2083597221128556,
+                0.18942902004857856
+            ],
+            "training_time": 131.05252814292908
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "content_weight": 2,
+            "style_weight": 100000000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-134636.png",
+                    "timestamp": "20241119-134636"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-134751.png",
+                    "timestamp": "20241119-134751"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-134915.png",
+                    "timestamp": "20241119-134915"
+                }
+            ],
+            "loss_values": [
+                699.2567138671875,
+                679.0428466796875,
+                670.2933349609375
+            ],
+            "ssim_values": [
+                0.3364064375459888,
+                0.2884756080698084,
+                0.2545215396069336
+            ],
+            "training_time": 232.36139273643494
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "content_weight": 2,
+            "style_weight": 100000000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-135202.png",
+                    "timestamp": "20241119-135202"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-135253.png",
+                    "timestamp": "20241119-135253"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-135351.png",
+                    "timestamp": "20241119-135351"
+                }
+            ],
+            "loss_values": [
+                0.17668698728084564,
+                0.20612388849258423,
+                0.14877161383628845
+            ],
+            "ssim_values": [
+                0.8355066768154034,
+                0.7583313167528724,
+                0.7054431883237918
+            ],
+            "training_time": 156.30830883979797
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "content_weight": 2,
+            "style_weight": 100000000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-135711.png",
+                    "timestamp": "20241119-135711"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-135802.png",
+                    "timestamp": "20241119-135802"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-135900.png",
+                    "timestamp": "20241119-135900"
+                }
+            ],
+            "loss_values": [
+                0.27409130334854126,
+                0.28934115171432495,
+                0.30989277362823486
+            ],
+            "ssim_values": [
+                0.4351376506603093,
+                0.37457034915252957,
+                0.3285136100917448
+            ],
+            "training_time": 156.2993450164795
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "content_weight": 2,
+            "style_weight": 100000000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-140201.png",
+                    "timestamp": "20241119-140201"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-140252.png",
+                    "timestamp": "20241119-140252"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-140350.png",
+                    "timestamp": "20241119-140350"
+                }
+            ],
+            "loss_values": [
+                24.648393630981445,
+                51.441673278808594,
+                93.78697204589844
+            ],
+            "ssim_values": [
+                0.008143727464220906,
+                0.007975607027576949,
+                0.008719570357157768
+            ],
+            "training_time": 157.37694454193115
+        },
+        {
+            "model_name": "vgg19",
+            "is_finetuned": false,
+            "content_image": "data/other/Tuebingen_Neckarfront.jpg",
+            "style_image": "data/other/vangogh_a_starry_night.jpg",
+            "content_weight": 2,
+            "style_weight": 100000000.0,
+            "generated_images": [
+                {
+                    "epoch": 800,
+                    "filename": "outputs/generate_vgg19/output_epoch_800_20241119-140729.png",
+                    "timestamp": "20241119-140729"
+                },
+                {
+                    "epoch": 1600,
+                    "filename": "outputs/generate_vgg19/output_epoch_1600_20241119-140820.png",
+                    "timestamp": "20241119-140820"
+                },
+                {
+                    "epoch": 2500,
+                    "filename": "outputs/generate_vgg19/output_epoch_2500_20241119-140917.png",
+                    "timestamp": "20241119-140917"
+                }
+            ],
+            "loss_values": [
+                0.18246503174304962,
+                0.15792733430862427,
+                0.1614539623260498
+            ],
+            "ssim_values": [
+                0.839313760442339,
+                0.7679270680251428,
+                0.7120734516747921
+            ],
+            "training_time": 156.92224407196045
         }
     ]
 }
